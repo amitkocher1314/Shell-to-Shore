@@ -1,6 +1,7 @@
-import React from "react";
-
+import React,{useContext} from "react";
+import MusicContext from "../../Store/cart-context";
 const Header = (props) => {
+    const{cartItems} = useContext(MusicContext)
     return (
         <>
         <header className="fixed top-0 left-0 w-full bg-gray-800 p-[17px] text-white ">
@@ -10,7 +11,7 @@ const Header = (props) => {
                     <button>STORE</button>
                     <button>ABOUT</button>
                 </div>
-                <button onClick={props.onClick} className="border-2 rounded-lg px-3 border-white" >Cart</button>
+                <button onClick={props.onClick} className="border-2 rounded-lg px-3 border-white" >Cart {cartItems.length}</button>
             </div>
         </header>
 

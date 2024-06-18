@@ -3,13 +3,17 @@ import MusicContext from "../../Store/cart-context";
 import Modal from "../../UI/Modal";
 
 const CartPage = (props) => {
-    const { cartItems } = useContext(MusicContext);
+    const { cartItems, removeCartItem } = useContext(MusicContext);
 
-    const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+    const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+    const removeItemHandler = (title) => {
+        removeCartItem(title);
+    };
 
     return (
         <Modal onClick={props.onClick}>
-            <div className="bg-white p-4 rounded-lg shadow-lg">
+            <div className="bg-white p-4 rounded-lg shadow-lg relative">
                 <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
                 <button onClick={props.onClick} className="absolute top-4 right-4 text-xl">✖</button>
                 {cartItems.length === 0 ? (
@@ -26,8 +30,14 @@ const CartPage = (props) => {
                                     <div className="flex-1 ml-4">
                                         <h3 className="text-lg font-semibold">{item.title}</h3>
                                         <p>Price: ${item.price}</p>
+                                        <p>Quantity: {item.quantity}</p>
                                     </div>
-                                    <button className="bg-red-500 text-white px-2 py-1 rounded">Remove</button>
+                                    <button 
+                                        className="bg-red-500 text-white px-2 py-1 rounded" 
+                                        onClick={() => removeItemHandler(item.title)}
+                                    >
+                                        Remove
+                                    </button>
                                 </li>
                             ))}
                         </ul>
