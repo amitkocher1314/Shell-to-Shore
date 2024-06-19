@@ -33,7 +33,7 @@ const ProductPage = (props) => {
 
     return (
         <>
-            <div className="text-center my-8 font-serif text-[30px]">MUSIC</div>
+            <div className="text-center my-2 font-serif text-[30px]">MUSIC</div>
             <div className="flex justify-center">
                 <div className="grid grid-cols-2 gap-x-24 gap-y-12">
                     {products.map((product,index) => (

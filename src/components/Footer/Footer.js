@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex justify-between items-center bg-blue-400  px-4">
+    <div className="flex justify-between items-center bg-blue-400  px-4 mt-auto">
       <div className="text-[40px] text-white font-serif">The Harmony Express</div>
       <div className="flex space-x-4">
         <a href="https://spotify.com"  className="text-white">
