@@ -8,6 +8,8 @@ import CartPage from './components/Cart/CartPage';
 import AboutPage from './components/AboutPage/AboutPage';
 import { MusicProvider } from './Store/cart-context';
 import WebsiteName from './components/Header/WebsiteName';
+import Contact from './components/ContactPage/Contact';
+
 
 const AppContent= () => {
   const [click, setClick] = useState(false);
@@ -24,7 +26,7 @@ const AppContent= () => {
   const location = useLocation();
 
   useEffect(()=>{
-    if (location.pathname === "/about"){
+    if (location.pathname === "/about" || location.pathname === "/contact"){
     setDisplayName(false)
   }
   else{
@@ -49,6 +51,8 @@ const AppContent= () => {
 
           {/* Default route (Home) */}
           <Route path="/" element={<ProductPage onClick={onOpen} />} />
+
+          <Route path="/contact" element={<Contact onClick={onOpen} />} />
         </Routes>
 
         <Footer />

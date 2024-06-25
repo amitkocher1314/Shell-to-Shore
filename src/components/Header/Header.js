@@ -20,6 +20,9 @@ const Header = (props) => {
             <NavLink to="/about" className={({ isActive }) => isActive ? "text-blue-500" : "text-white"}>
               ABOUT
             </NavLink>
+            <NavLink to="/contact">
+            Contact Us
+            </NavLink>
           </div>
           <button onClick={props.onClick} className="border-2 rounded-lg px-3 border-white">
             Cart {cartItems.length}
